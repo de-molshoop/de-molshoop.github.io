@@ -1,14 +1,16 @@
-import './App.css'
-import TextSection from './components/Text-Section'
-import Home from './pages/Home'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/Login";
+import HomePage from "./pages/Home";
 
 function App() {
-
-  return (
-    <>
-      <Home/>
-    </>
-  )
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+            </Routes>
+        </Router>
+    );
 }
 
-export default App
+export default App;
