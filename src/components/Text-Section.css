@@ -1,10 +1,16 @@
 .text-section-container {
-    width: 60vw;
+    width: 60%;
     font-family: "Kadwa", sans-serif;
     font-size: 18px;
     font-style: italic;
     color: white;
     height: 65%;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .logo {
@@ -19,12 +25,6 @@
     height: 25vh;
     width: auto;
     z-index: 0;
-
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
 }
 
 .shoop {
