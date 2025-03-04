@@ -1,0 +1,21 @@
+.text-section-container {
+    width: 60vw;
+    font-family: "Kadwa", sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    color: white
+}
+
+.DM-logo {
+    opacity: 50%;
+    height: 25vh;
+    width: auto;
+    z-index: 0;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
