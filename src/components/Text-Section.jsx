@@ -8,9 +8,12 @@ const TextSection = () => {
         <div className="text-section-container">
             <div className="logo">
                 <img className="DM-logo" src={IconDM} unselectable="true" draggable="false"></img>
+                <p className="shoop">SHOOP</p>
             </div>
-            <p>{texts.homeP1}</p>
-            <p>{texts.homeP2}</p>
+            <div className="paragraphs">
+                <p>{texts.homeP1}</p>
+                <p>{texts.homeP2}</p>
+            </div>
         </div>
     );
 };
