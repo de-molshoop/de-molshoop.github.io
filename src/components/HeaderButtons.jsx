@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 const HeaderButtons = () => {
 
     const navigate = useNavigate()
+    const inviteLink = "https://discord.gg/zSAcFbAwNU"
 
     return (
         <div className="header-container">
-            <button className="button discord" onClick={() => window.open('https://discord.gg/zSAcFbAwNU', '_blank', 'noopener,noreferrer')}>
+            <button className="button discord" onClick={() => window.open(inviteLink, '_blank', 'noopener,noreferrer')}>
                 <img src={DiscordIcon} alt="Discord" className="btn-icon" />
                 Join
             </button>
