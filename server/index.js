@@ -29,7 +29,7 @@ app.post("/api/auth/discord", async (req, res) => {
             grant_type: "authorization_code",
             code: code,
             redirect_uri: REDIRECT_URI,
-            scope: "identify",
+            scope: "identify guilds",
         });
 
         const tokenResponse = await axios.post(
@@ -38,9 +38,34 @@ app.post("/api/auth/discord", async (req, res) => {
             { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
         );
 
-        res.json(tokenResponse.data);
+        const tokenData = tokenResponse.data;
+
+        if (!tokenData.access_token) {
+            return res.status(400).json({ error: "Invalid token response" });
+        }
+
+        const userResponse = await axios.get("https://discord.com/api/users/@me", {
+            headers: { Authorization: `Bearer ${tokenData.access_token}` },
+        });
+
+        const userData = userResponse.data;
+
+        const guildsResponse = await axios.get("https://discord.com/api/users/@me/guilds", {
+            headers: { Authorization: `Bearer ${tokenData.access_token}` },
+        });
+
+        const guildsData = guildsResponse.data;
+
+        console.log(guildsData)
+
+        res.json({
+            access_token: tokenData.access_token,
+            user: userData,
+            guilds: guildsData,
+        });
     } catch (error) {
         console.error("OAuth Error:", error.response?.data || error.message);
+        res.status(500).json({ error: "Internal server error" });
     }
 });
 

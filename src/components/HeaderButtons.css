@@ -1,9 +1,7 @@
 .header-container {
     display: flex;
-    gap: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 20%;
+    right: 1.8%;
     z-index: 4;
 }
 

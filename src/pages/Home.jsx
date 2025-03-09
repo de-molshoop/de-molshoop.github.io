@@ -7,29 +7,35 @@ import TextSection from "../components/Text-Section";
 
 const Home = () => {
     const [user, setUser] = useState(null);
+    const [guilds, setGuilds] = useState([]);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const token = localStorage.getItem("access_token");
-
-        axios.get("https://discord.com/api/users/@me", {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-        .then(response => {
-            console.log("Gebruiker:", response.data);
-            setUser(response.data);
-        })
-        .catch(error => {
-            console.error("Fout bij ophalen gebruiker:", error);
-            localStorage.removeItem("access_token");
-        });
-    }, [navigate]);
-
-    console.log(user)
 
     return (
         <div className="home">
-            <HeaderButtons />
+
+            <header className="navbar">
+                <div className="left-nav">
+                    <div className="userinfo">
+                        
+                    {user && (
+                        <img src={user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : "https://cdn.discordapp.com/embed/avatars/0.png"} 
+                            alt="Profielfoto" className="profile-pic" />
+                    )}
+
+                    {user && (
+                        <span className="name">{user.username}</span>
+                    )}
+                    </div>
+                    
+                    <button className="nav-button" onClick={() => navigate("/")}>Home</button>
+                    <button className="nav-button" onClick={() => navigate("/quiz")}>Quiz</button>
+                </div>
+
+                <div className="right-nav">
+                    <HeaderButtons />
+                </div>
+            </header>
+
             <TextSection />
         </div>
     );
