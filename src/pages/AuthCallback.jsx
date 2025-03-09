@@ -18,8 +18,8 @@ const AuthCallback = () => {
         })
         .then(response => {
             localStorage.setItem("access_token", response.data.access_token);
-            localStorage.setItem("guilds", response.data.guilds)
-            localStorage.setItem("user", response.data.user)
+            localStorage.setItem("guilds", JSON.stringify(response.data.guilds))
+            localStorage.setItem("user", JSON.stringify(response.data.user))
 
             console.log(localStorage)
             navigate("/");

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Home.css";
@@ -6,10 +6,11 @@ import HeaderButtons from "../components/HeaderButtons";
 import TextSection from "../components/Text-Section";
 
 const Home = () => {
-    const [user, setUser] = useState(null);
-    const [guilds, setGuilds] = useState([]);
     const navigate = useNavigate();
 
+    const guilds = JSON.parse(localStorage.getItem("guilds"))
+    const user = JSON.parse(localStorage.getItem("user"))
+    
     return (
         <div className="home">
 
