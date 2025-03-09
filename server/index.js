@@ -56,8 +56,6 @@ app.post("/api/auth/discord", async (req, res) => {
 
         const guildsData = guildsResponse.data;
 
-        console.log(guildsData)
-
         res.json({
             access_token: tokenData.access_token,
             user: userData,
