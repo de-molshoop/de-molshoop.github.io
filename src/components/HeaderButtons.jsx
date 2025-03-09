@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../components/HeaderButtons.css";
 import DiscordIcon from "../assets/Discord-PNG.png";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const HeaderButtons = () => {
 
-    const [user, setUser] = useState(null);
     const navigate = useNavigate()
     const inviteLink = "https://discord.gg/zSAcFbAwNU"
-    
+    const user = localStorage.getItem("user")
+
     return (
         <div className="header-container">
             <button className="button discord" onClick={() => window.open(inviteLink, '_blank', 'noopener,noreferrer')}>
